@@ -1,0 +1,16 @@
+services:
+  clickhouse-test:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    container_name: clickhouse-test
+    restart: always
+    environment:
+      TZ: ${TZ}
+      ulimit: ${ULIMIT}
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
