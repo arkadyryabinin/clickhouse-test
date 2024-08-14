@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile 
     container_name: clickhouse-test
     restart: always
+    ports:
+      - "9000:9009"
     environment:
       TZ: ${TZ}
       ulimit: ${ULIMIT}
@@ -14,3 +16,9 @@ services:
       options:
         max-size: "10m"
         max-file: "5"
+
+  # tabix:
+  #   container_name: clickhouse-tabix
+  #   image: spoonest/clickhouse-tabix-web-client
+  #   ports:
+  #     - "8080:80"
